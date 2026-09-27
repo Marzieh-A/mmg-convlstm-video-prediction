@@ -1,0 +1,30 @@
+dataset: moving_mnist
+raw_path: datasets/raw/moving_mnist/mnist_test_seq.npy
+
+input_len: 10
+pred_len: 10
+height: 64
+width: 64
+channels: 1
+
+model:
+  enc_c1: 32
+  enc_c2: 64
+  enc_c3: 128
+  feat_channels: 64
+  kernel_size: 3
+
+training:
+  epochs: 50
+  batch_size: 8
+  lr: 0.001
+  weight_decay: 0.0001
+  scheduler: cosine
+  max_grad_norm: 1.0
+  num_workers: 0
+  early_stopping_patience: 10
+  seed: 42
+  loss_kind: composite      # (kept for reference/other entry points)
+  loss_warmup_epochs: 8
+
+output_dir: outputs/moving_mnist_gdl
